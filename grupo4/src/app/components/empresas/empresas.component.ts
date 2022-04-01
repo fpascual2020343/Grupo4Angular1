@@ -27,6 +27,7 @@ export class EmpresasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getEmpresa();
   }
 
   getEmpresa() {

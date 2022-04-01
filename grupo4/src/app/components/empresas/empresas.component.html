@@ -1,7 +1,24 @@
+<div class="container">
+
 <!-- Button activador modal agregar Empresas-->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarEmpresaModal">
   Agregar Empresas
 </button>
+
+
+<div class="row">
+  <div class="col-12 col-md-4" *ngFor="let empre of empresasModelGet">
+    <div class="card border-success mb-3">
+      <div class="card-header bg-transparent border-success">{{ empre.nombre }}</div>
+      <div class="card-body text-success">
+        <p class="card-text">
+          La cantidad en stock es de: {{ empre.direccion }}
+          y el precio del producto es de: Q.{{ empre.descripcion }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Modal Agregar Empresas-->
 <div class="modal fade" id="agregarEmpresaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -22,19 +39,18 @@
           <div class="mg-3">
             <label for="imputNombre" class="form-label"> Nombre de la Empresa</label>
             <input type="text" id="imputNombre" class="form-control" name="nombre" #nombre="ngModel"
-            [(ngModel)]="empresasModelPost.nombre">
+              [(ngModel)]="empresasModelPost.nombre">
           </div>
           <div class="mg-3">
             <label for="imputDireccion" class="form-label"> Direccion de la Empresa</label>
             <input type="text" id="imputDireccion" class="form-control" name="direccion" #direccion="ngModel"
-            [(ngModel)]="empresasModelPost.direccion">
+              [(ngModel)]="empresasModelPost.direccion">
           </div>
           <div class="mg-3">
             <label for="imputDescripcion" class="form-label"> Descripcion de la Empresa</label>
             <input type="text" id="imputDescripcion" class="form-control" name="descripcion" #descripcion="ngModel"
-            [(ngModel)]="empresasModelPost.descripcion">
+              [(ngModel)]="empresasModelPost.descripcion">
           </div>
-
 
         </form>
 
@@ -45,4 +61,6 @@
       </div>
     </div>
   </div>
+</div>
+
 </div>
