@@ -33,7 +33,8 @@ export class EmpresasComponent implements OnInit {
   getEmpresa() {
     this._empresasService.obtenerEmpresas().subscribe(
       (response) => {
-        console.log(response)
+        console.log(response.empresa);
+        this.empresasModelGet = response.empresa;
       },
       (err) => {
         console.log(<any>err)
