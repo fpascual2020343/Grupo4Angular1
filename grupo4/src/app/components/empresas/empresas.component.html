@@ -1,0 +1,48 @@
+<!-- Button activador modal agregar Empresas-->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarEmpresaModal">
+  Agregar Empresas
+</button>
+
+<!-- Modal Agregar Empresas-->
+<div class="modal fade" id="agregarEmpresaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <form>
+
+          <div class="mg-3">
+            <label for="imputNombre" class="form-label"> Nombre de la Empresa</label>
+            <input type="text" id="imputNombre" class="form-control" name="nombre" #nombre="ngModel"
+            [(ngModel)]="empresasModelPost.nombre">
+          </div>
+          <div class="mg-3">
+            <label for="imputDireccion" class="form-label"> Direccion de la Empresa</label>
+            <input type="text" id="imputDireccion" class="form-control" name="direccion" #direccion="ngModel"
+            [(ngModel)]="empresasModelPost.direccion">
+          </div>
+          <div class="mg-3">
+            <label for="imputDescripcion" class="form-label"> Descripcion de la Empresa</label>
+            <input type="text" id="imputDescripcion" class="form-control" name="descripcion" #descripcion="ngModel"
+            [(ngModel)]="empresasModelPost.descripcion">
+          </div>
+
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="postEmpresa()">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
