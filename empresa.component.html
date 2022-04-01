@@ -1,0 +1,14 @@
+<body>
+  <div class="row">
+  <div class="col-12 col-md-4" *ngFor="let emp of empresasModelGet">
+  <div class="card text-dark bg-light border-info  mb-3" style="max-width: 18rem;">
+    <div class="card-header bg-transparent border-info ">{{ emp.nombre }}</div>
+    <div class="card-body text-dark">
+      <h5 class="card-title">La direccion que se encuentra es: {{ emp.direccion }}</h5>
+      <p class="card-text">Una pequeña descripcion: {{ emp.descripcion }}</p>
+    </div>
+    <div class="card-footer bg-transparent border-info ">{{ emp.nombre }} S,A. ©</div>
+  </div>
+  </div>
+  </div>
+</body>
