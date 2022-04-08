@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Empresas } from 'src/app/models/empresa.model';
 import { EmpresasService } from 'src/app/services/empresas.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-empresas',
   templateUrl: './empresas.component.html',
   styleUrls: ['./empresas.component.scss'],
-  providers: [EmpresasService]
+  providers: [EmpresasService, UsuarioService]
 })
 export class EmpresasComponent implements OnInit {
 
   public empresasModelGet: Empresas;
   public empresasModelPost: Empresas;
+  public token;
 
-  constructor(private _empresasService: EmpresasService) {
+  constructor(private _empresasService: EmpresasService,
+                    private _usuarioService: UsuarioService) {
     this.empresasModelPost = new Empresas(
       '',
       '',
@@ -24,6 +27,7 @@ export class EmpresasComponent implements OnInit {
         direccion: ''
         }]
     )
+    this.token = this._usuarioService.getToken()
   }
 
   ngOnInit(): void {
@@ -53,6 +57,16 @@ export class EmpresasComponent implements OnInit {
       },
       (err) => {
         console.log(<any>err)
+      }
+    )
+  }
+
+  deleteEmpresa(id) {
+    this._empresasService.eliminarEmpresa(id).subscribe(
+      response => {console.log(response);
+        this.getEmpresa();
+      },
+      (err) => {console.log(<any>err);
       }
     )
   }

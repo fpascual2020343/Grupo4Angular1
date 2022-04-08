@@ -6,18 +6,24 @@
       Agregar Empresas
     </button>
 
-
-    <div class="row">
-    <div class="col-12 col-md-4" *ngFor="let empr of empresasModelGet">
+  <div class="row">
+    <div class="col-12 col-md-4" *ngFor="let empre of empresasModelGet">
       <div class="card text-dark bg-light border-info  mb-3" style="max-width: 18rem;">
-        <div class="card-header bg-transparent border-info "> {{empr.nombre}} </div>
+        <div class="card-header bg-transparent border-info "> {{empre.nombre}} </div>
         <div class="card-body text-dark">
-          <h5 class="card-title">La direccion que se encuentra es: {{empr.direccion}}</h5>
-          <p class="card-text">Una pequeña descripcion: {{empr.descripcion}} </p>
+          <h5 class="card-title">La direccion que se encuentra es: {{empre.direccion}}</h5>
+          <p class="card-text">Una pequeña descripcion: {{empre.descripcion}} </p>
         </div>
-        <div class="card-footer bg-transparent border-info ">{{empr.nombre}} S,A. ©</div>
+        <div class="card-footer bg-transparent border-info ">
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-outline-warning">Editar</button>
+            <button type="button" class="btn btn-outline-danger"  (click)="deleteEmpresa(empre._id)"><i class="bi bi-trash"></i> Eliminar</button>
+          </div>
+        </div>
       </div>
       </div>
+
+</div>
 
     <!-- Modal Agregar Empresas-->
     <div class="modal fade" id="agregarEmpresaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -27,7 +33,7 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
+            <h5 class="modal-title form-label fw-bolder text-dark" id="exampleModalLabel">Agregar Empresa</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
@@ -36,17 +42,17 @@
             <form>
 
               <div class="mg-3">
-                <label for="imputNombre" class="form-label"> Nombre de la Empresa</label>
+                <label for="imputNombre" class="form-label fw-bolder text-dark"> Nombre de la Empresa</label>
                 <input type="text" id="imputNombre" class="form-control" name="nombre" #nombre="ngModel"
                   [(ngModel)]="empresasModelPost.nombre">
               </div>
               <div class="mg-3">
-                <label for="imputDireccion" class="form-label"> Direccion de la Empresa</label>
+                <label for="imputDireccion" class="form-label fw-bolder text-dark"> Direccion de la Empresa</label>
                 <input type="text" id="imputDireccion" class="form-control" name="direccion" #direccion="ngModel"
                   [(ngModel)]="empresasModelPost.direccion">
               </div>
               <div class="mg-3">
-                <label for="imputDescripcion" class="form-label"> Descripcion de la Empresa</label>
+                <label for="imputDescripcion" class="form-label fw-bolder text-dark"> Descripcion de la Empresa</label>
                 <input type="text" id="imputDescripcion" class="form-control" name="descripcion" #descripcion="ngModel"
                   [(ngModel)]="empresasModelPost.descripcion">
               </div>
