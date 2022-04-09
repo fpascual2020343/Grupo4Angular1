@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Usuario } from '../models/usuario.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,12 @@ export class UsuarioService {
   public identidad;
 
   constructor(public _http: HttpClient) { }
+
+  registro(modeloUsuarios: Usuario) : Observable<any> {
+    let parametros = JSON.stringify(modeloUsuarios);
+
+    return this._http.post(this.url + '/registro', parametros, { headers: this.headersVariable });
+  }
 
   login(usuario, obtenerToken = null): Observable<any> {
 

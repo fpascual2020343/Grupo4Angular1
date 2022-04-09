@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
 
   public usuarioModel: Usuario;
 
+  public UsuariosModelPost: Usuario;
+
   constructor(private _usuarioService: UsuarioService) {
     this.usuarioModel = new Usuario(
       "",
@@ -57,6 +59,22 @@ export class LoginComponent implements OnInit {
         console.log(<any>error);
       }
     );
+  }
+
+
+  postUsuario(){
+    this._usuarioService.registro(this.usuarioModel).subscribe(
+      (response)=>{
+        console.log(response);
+        this.usuarioModel.nombre = '';
+        this.usuarioModel.email = '';
+        this.usuarioModel.password = '';;
+      },
+      (error)=>{
+        console.log(<any>error);
+
+      }
+    )
   }
 
 }

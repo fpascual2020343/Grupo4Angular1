@@ -8,7 +8,8 @@
         <div class="sign-in-htm">
           <div class="group">
             <label  class="label">{{nombreUsuario}}</label>
-            <input  type="text" class="input" name="email" #email="ngModel" [(ngModel)]="usuarioModel.email">
+            <input  type="text" class="input" name="email" #email="ngModel"
+            [(ngModel)]="usuarioModel.email">
           </div>
           <div class="group">
             <label class="label">{{Contrasena}}</label>
@@ -28,20 +29,27 @@
           </div>
         </div>
         <div class="sign-up-htm">
+
           <div class="group">
-            <label for="user" class="label">{{nombreUsuario}}</label>
-            <input id="user" type="text" class="input">
+            <label class="label">{{nombreUsuario}}</label>
+            <input  type="text" class="input" name="nombre" #nombre="ngModel"
+            [(ngModel)]="usuarioModel.nombre">
           </div>
+
+          <div class="group">
+            <label  class="label">{{nombreUsuario}}</label>
+            <input  type="text" class="input" name="email" #email="ngModel"
+            [(ngModel)]="usuarioModel.email">
+          </div>
+
           <div class="group">
             <label  class="label">{{Contrasena}}</label>
-            <input  type="password" class="input" data-type="password">
+            <input  type="password" class="input" data-type="password" name="password" #password="ngModel"
+            [(ngModel)]="usuarioModel.password">
           </div>
+
           <div class="group">
-            <label class="label">{{mail}}</label>
-            <input  type="email" class="input">
-          </div>
-          <div class="group">
-            <input type="submit" class="button" value={{Registrarme}}>
+            <input type="submit" class="button" (click)="postUsuario()" value={{Registrarme}}>
           </div>
           <p>Sign up with social platforms</p>
           <div class="d-grid gap-2" role="group" aria-label="Basic checkbox toggle button group">
