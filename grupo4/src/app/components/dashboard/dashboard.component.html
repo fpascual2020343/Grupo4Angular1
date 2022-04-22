@@ -1,85 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <div class="contenedor">
-    <h1>Sucursales</h1>
-    <div class="card" style="width: 18rem;">
-      <img src="../../../assets/imagenes/descarga1.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Nombre de la sucursal</h5>
-        <p class="card-text">Informacion detallada de la sucursal</p>
-        <a href="#" class="btn btn-outline-success">Ir a la sucursal</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="../../../assets/imagenes/descarga.jpg" class="card-img-top" alt="...">
-      <div class="card-body"cted>
-        <h5 class="card-title">Nombre de la sucursal</h5>
-        <p class="card-text">Informacion detallada de la sucursal</p>
-        <a href="#" class="btn btn-outline-success">Ir a la sucursal</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="../../../assets/imagenes/descarga3.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Nombre de la sucursal</h5>
-        <p class="card-text">Informacion detallada de la sucursal</p>
-        <a href="#" class="btn btn-outline-success">Ir a la sucursal</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="../../../assets/imagenes/descarga4.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Nombre de la sucursal</h5>
-        <p class="card-text">Informacion detallada de la sucursal</p>
-        <a href="#" class="btn btn-outline-success">Ir a la sucursal</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="../../../assets/imagenes/descarga5.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Nombre de la sucursal</h5>
-        <p class="card-text">Informacion detallada de la sucursal</p>
-        <a href="#" class="btn btn-outline-success">Ir a la sucursal</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="../../../assets/imagenes/descarga6.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Nombre de la sucursal</h5>
-        <p class="card-text">Informacion detallada de la sucursal</p>
-        <a href="#" class="btn btn-outline-success">Ir a la sucursal</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <img src="../../../assets/imagenes/descarga7.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Nombre de la sucursal</h5>
-        <p class="card-text">Informacion detallada de la sucursal</p>
-        <a href="#" class="btn btn-outline-success">Ir a la sucursal</a>
-      </div>
-    </div>
-     <div class="card" style="width: 18rem;">
-      <img src="../../../assets/imagenes/descarga8.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Nombre de la sucursal</h5>
-        <p class="card-text">Informacion detallada de la sucursal</p>
-        <a href="#" class="btn btn-outline-success">Ir a la sucursal</a>
-      </div>
-    </div>
+    <h1>Sucursales </h1>
+    <div class="boton-agregar">
+       <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#agregarEmpresaModal">Agregar sucursales</button></div>
 
+
+       <div class="card" style="width: 18rem;" *ngFor="let suc of sucursalModelGet">
+        <div class="card-body">
+          <h5 class="card-title">{{suc.nombre}}</h5>
+          <p class="card-text">{{suc.direccion}}</p>
+          <a href="#" class="btn btn-primary">Ir a la sucursal</a>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarSucursalModal" (click)="getSucursalesId(suc._id)">Editar</button>
+          <button type="button" class="btn btn-danger">Eliminar</button>
+
+        </div>
+      </div>
+
+  <!-- Modal Agregar Empresas-->
+  <div class="cajaa">
+    <div class="modal fade" id="agregarEmpresaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar sucursal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+
+            <form>
+
+              <div class="mg-3">
+                <label for="imputNombre" class="form-label"> Nombre de la Sucursal</label>
+                <input type="text" id="imputNombre" class="form-control" name="nombre" #nombre="ngModel"  [(ngModel)]="sucursalModelPost.nombre"
+               >
+              </div>
+              <div class="mg-3">
+                <label for="imputDireccion" class="form-label">Direccion de la sucursal</label>
+                <input type="text" id="imputDireccion" class="form-control" name="direccion" #direccion="ngModel"  [(ngModel)]="sucursalModelPost.direccion"
+                  >
+              </div>
+
+
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" (click)="postSucursales()">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal editar sucursal-->
+   <div class="cajaa">
+    <div class="modal fade" id="editarSucursalModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar sucursal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+
+            <form>
+
+              <div class="mg-3">
+                <label for="imputNombre" class="form-label"> Nombre de la Sucursal</label>
+                <input type="text" id="imputNombre" class="form-control" name="nombre"  #nombre="ngModel"
+                [(ngModel)]="sucursalModelGetId.nombre"
+               >
+              </div>
+              <div class="mg-3">
+                <label for="imputDireccion" class="form-label">Direccion de la sucursal</label>
+                <input type="text" id="imputDireccion" class="form-control" name="direccion" #direccion="ngModel"
+                [(ngModel)]="sucursalModelGetId.direccion"
+                  >
+              </div>
+
+
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" (click)="putSucursales()">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
 
   </div>
 
-  </body>
+</body>
 
 </html>
+
