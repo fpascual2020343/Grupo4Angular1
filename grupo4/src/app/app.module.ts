@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { EmpresasComponent } from './components/empresas/empresas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EmpreSucComponent } from './components/empre-suc/empre-suc.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     DashboardComponent,
     FooterComponent,
-    EmpresasComponent
+    EmpresasComponent,
+    EmpreSucComponent
+
   ],
   imports: [
     BrowserModule,

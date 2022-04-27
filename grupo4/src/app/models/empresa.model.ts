@@ -4,9 +4,11 @@ export class Empresas {
     public nombre: String,
     public direccion: String,
     public descripcion: String,
-    public sucursales: [{
-      nombre: String,
-      direccion: String
-    }]
+    public productos: [{
+      nombreProducto: String,
+      precioProducto: Number,
+      stock: Number
+  }]
+
   ){}
 }

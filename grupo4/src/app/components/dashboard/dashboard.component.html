@@ -21,7 +21,8 @@
           <p class="card-text">{{suc.direccion}}</p>
           <a href="#" class="btn btn-primary">Ir a la sucursal</a>
           <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarSucursalModal" (click)="getSucursalesId(suc._id)">Editar</button>
-          <button type="button" class="btn btn-danger">Eliminar</button>
+          <button type="button" class="btn btn-danger" (click)="deleteSucursales(suc._id)">Eliminar</button>
+
 
         </div>
       </div>
@@ -76,7 +77,7 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Agregar sucursal</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Editar sucursal</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 

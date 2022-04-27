@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Sucursales } from 'src/app/models/sucursales.model';
 import { SucursalesService } from 'src/app/services/sucursales.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+
 import Swal from 'sweetalert2'
 
 @Component({
@@ -14,6 +15,7 @@ export class DashboardComponent implements OnInit {
   public sucursalModelGet: Sucursales;
   public sucursalModelPost: Sucursales;
   public sucursalModelGetId: Sucursales;
+
 
   public token;
   constructor(private _sucursalesService: SucursalesService,
@@ -111,5 +113,15 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
+  deleteSucursales(id){
+    this._sucursalesService.eliminarSucursal(id, this.token).subscribe(
+      (response)=>{
+        console.log(response);
+        this.getSucursales();
+
+      }
+    )
+  }
+
 
 }

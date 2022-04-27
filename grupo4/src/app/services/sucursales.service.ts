@@ -43,5 +43,10 @@ export class SucursalesService{
 
     return this._http.get(this.url + '/obtenerSucursal/' + idSucursal, { headers: headersToken})
   }
+  eliminarSucursal(idSucursal, token) : Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token )
 
+    return this._http.delete(this.url + '/eliminarSucursales/' + idSucursal, { headers: headersToken})
+
+  }
 }
