@@ -12,6 +12,7 @@ import { EmpresasComponent } from './components/empresas/empresas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EmpreSucComponent } from './components/empre-suc/empre-suc.component';
+import { SucursalComponent } from './components/sucursal/sucursal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EmpreSucComponent } from './components/empre-suc/empre-suc.component';
     DashboardComponent,
     FooterComponent,
     EmpresasComponent,
-    EmpreSucComponent
+    EmpreSucComponent,
+    SucursalComponent
 
   ],
   imports: [

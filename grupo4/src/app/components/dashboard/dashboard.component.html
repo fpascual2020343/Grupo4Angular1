@@ -19,7 +19,7 @@
         <div class="card-body">
           <h5 class="card-title">{{suc.nombre}}</h5>
           <p class="card-text">{{suc.direccion}}</p>
-          <a href="#" class="btn btn-primary">Ir a la sucursal</a>
+          <a href="#" class="btn btn-primary" [routerLink]="['/empre-suc/sucursal', suc._id]">Ir a la sucursal</a>
           <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarSucursalModal" (click)="getSucursalesId(suc._id)">Editar</button>
           <button type="button" class="btn btn-danger" (click)="deleteSucursales(suc._id)">Eliminar</button>
 

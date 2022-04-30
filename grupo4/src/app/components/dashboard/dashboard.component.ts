@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Sucursales } from 'src/app/models/sucursales.model';
 import { SucursalesService } from 'src/app/services/sucursales.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -19,7 +20,8 @@ export class DashboardComponent implements OnInit {
 
   public token;
   constructor(private _sucursalesService: SucursalesService,
-    private _usuarioService: UsuarioService) {
+    private _usuarioService: UsuarioService,
+    private _router: Router) {
     this.sucursalModelPost = new Sucursales(
       '',
       '',
@@ -122,6 +124,8 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
+  sucursal(){
 
+  }
 
 }

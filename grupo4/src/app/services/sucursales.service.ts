@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Sucursales } from 'src/app/models/sucursales.model';
+import { Productos } from '../models/productos.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,4 +50,24 @@ export class SucursalesService{
     return this._http.delete(this.url + '/eliminarSucursales/' + idSucursal, { headers: headersToken})
 
   }
+  obtenerProductos( idSucursal, token ): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token )
+
+
+    return this._http.get(this.url + '/obtenerProductos/' + idSucursal, { headers: headersToken})
+  }
+  venderProducto( modeloProducto: Productos, idSucursal, token ): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token )
+
+    let parametro = JSON.stringify(modeloProducto);
+
+    return this._http.put(this.url + '/generarVenta/' + modeloProducto._id + '/' + idSucursal, parametro, { headers: headersToken})
+  }
+  obtenerProductosId(idSucursal, token, idProducto ): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token )
+
+
+    return this._http.get(this.url + '/obtenerProdid/' + idProducto + '/' + idSucursal, { headers: headersToken})
+  }
+
 }
