@@ -3,7 +3,7 @@ import { SucursalesService } from 'src/app/services/sucursales.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ActivatedRoute } from '@angular/router';
 import { Productos } from 'src/app/models/productos.model';
-
+import { Sucursales } from 'src/app/models/sucursales.model';
 @Component({
   selector: 'app-sucursal',
   templateUrl: './sucursal.component.html',
@@ -15,7 +15,8 @@ export class SucursalComponent implements OnInit {
   public productosModelGet: Productos;
   public idSucursal: String;
   public productosModelGetId: Productos;
-
+  public sucursalModelGetId: Sucursales;
+  public nombreSuc: '';
   constructor(
     public _sucursalService: SucursalesService,
     public _usuarioService: UsuarioService,
@@ -28,6 +29,17 @@ export class SucursalComponent implements OnInit {
       '',
       0,
       0
+    ),
+    this.sucursalModelGetId = new Sucursales(
+      '',
+      '',
+      '',
+      [{
+        nombreProducto: '',
+        precioProducto: 0,
+        stock: 0
+      }],
+      ''
     )
   }
 
@@ -36,6 +48,7 @@ export class SucursalComponent implements OnInit {
       console.log(dataRuta.get('idSucursal'));
       this.getSucursalId(dataRuta.get('idSucursal'))
       this.idSucursal = dataRuta.get('idSucursal')
+      this.getSucursalesId(dataRuta.get('idSucursal'))
     })
   }
 
@@ -76,5 +89,15 @@ export class SucursalComponent implements OnInit {
       }
     )
   }
+  getSucursalesId(idSucursal){
+    this._sucursalService.obtenerSucursalId(idSucursal, this.token).subscribe(
+      (response)=>{
+        console.log(response);
+        this.sucursalModelGetId = response.sucursal;
+      },
+      (error)=>{
 
+      }
+    )
+  }
 }

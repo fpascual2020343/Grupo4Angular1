@@ -12,16 +12,18 @@ export class EmpresasService {
   constructor(public _http: HttpClient) { }
   public headersVariable = new HttpHeaders().set('Content-Type', 'application/json')
 
-  obtenerEmpresas(): Observable<any> {
+  obtenerEmpresas(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token )
 
-    return this._http.get(this.url + '/obtenerEmpresas', {headers: this.headersVariable });
+    return this._http.get(this.url + '/obtenerEmpresas', {headers: headersToken });
   }
 
-  agregarEmpresas(modeloEmpresa: Empresas): Observable<any>{
+  agregarEmpresas(modeloEmpresa: Empresas, token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token);
 
     let parametros = JSON.stringify(modeloEmpresa);
 
-    return this._http.post(this.url + '/agregarEmpresa', parametros, {headers: this.headersVariable })
+    return this._http.post(this.url + '/agregarEmpresa', parametros, {headers: headersToken })
   }
   obtenerproductos(token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token )

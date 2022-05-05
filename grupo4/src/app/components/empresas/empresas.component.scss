@@ -4,6 +4,7 @@ body{
 	background:#262626;
 	font:600 16px/18px 'Open Sans',sans-serif;
   color: #262626;
+  min-height: 100vh;
 }
 h5{
   color: #262626;
@@ -28,4 +29,10 @@ h5{
   .fullscreen-modal .modal-dialog {
      width: 1170px;
   }
+}
+button{
+  margin-top: 15px;
+}
+.cartas{
+  margin-top: 20px;
 }

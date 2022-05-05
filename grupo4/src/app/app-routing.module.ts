@@ -6,9 +6,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { EmpreSucComponent } from './components/empre-suc/empre-suc.component';
 import { SucursalComponent } from './components/sucursal/sucursal.component';
+import { IndefinidoComponent } from './components/indefinido/indefinido.component';
+import { IntegrantesComponent } from './components/integrantes/integrantes.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'integrantes', component: IntegrantesComponent},
   {path: 'home', component: HomeComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'empresas', component: EmpresasComponent},
@@ -16,7 +19,8 @@ const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent},
     {path: 'sucursal/:idSucursal', component: SucursalComponent}
 
-  ]}
+  ]},
+  { path: '**', component: IndefinidoComponent}
 ];
 
 @NgModule({

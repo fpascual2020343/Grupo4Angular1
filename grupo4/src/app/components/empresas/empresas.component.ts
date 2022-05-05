@@ -70,7 +70,7 @@ export class EmpresasComponent implements OnInit {
   }
 
   getEmpresa() {
-    this._empresasService.obtenerEmpresas().subscribe(
+    this._empresasService.obtenerEmpresas(this.token).subscribe(
       (response) => {
         console.log(response.empresa);
         this.empresasModelGet = response.empresa;
@@ -82,7 +82,7 @@ export class EmpresasComponent implements OnInit {
   }
 
   postEmpresa() {
-    this._empresasService.agregarEmpresas(this.empresasModelPost).subscribe(
+    this._empresasService.agregarEmpresas(this.empresasModelPost, this.token).subscribe(
       (response) => {
         console.log(response);
         this.getEmpresa();
