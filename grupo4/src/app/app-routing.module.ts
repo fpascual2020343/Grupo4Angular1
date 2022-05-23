@@ -8,6 +8,7 @@ import { EmpreSucComponent } from './components/empre-suc/empre-suc.component';
 import { SucursalComponent } from './components/sucursal/sucursal.component';
 import { IndefinidoComponent } from './components/indefinido/indefinido.component';
 import { IntegrantesComponent } from './components/integrantes/integrantes.component';
+import { GraficasComponent } from './components/graficas/graficas.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'empresas', component: EmpresasComponent},
   {path: 'empre-suc', component: EmpreSucComponent, children: [
     {path: 'dashboard', component: DashboardComponent},
+    {path: 'graficas/:idSucursal', component: GraficasComponent},
     {path: 'sucursal/:idSucursal', component: SucursalComponent}
 
   ]},

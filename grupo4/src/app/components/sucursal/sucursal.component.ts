@@ -17,6 +17,7 @@ export class SucursalComponent implements OnInit {
   public productosModelGetId: Productos;
   public sucursalModelGetId: Sucursales;
   public nombreSuc: '';
+  public search;
   constructor(
     public _sucursalService: SucursalesService,
     public _usuarioService: UsuarioService,

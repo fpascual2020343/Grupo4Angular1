@@ -3,14 +3,16 @@
 <body>
   <header>
     <h1>{{sucursalModelGetId.nombre}} <br> <span>[ {{sucursalModelGetId.direccion}} ]</span></h1>
-</header>
+    <br><br>
+    <button type="button" class="btn btn-outline-info" [routerLink]="['/empre-suc/graficas', sucursalModelGetId._id]">Grafica </button>
+  </header>
 
 <div class="container-search">
   <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
       <div class="searchbar">
-        <input class="search_input" type="text" name="" placeholder="Search...">
-        <a href="/sadasd" class="search_icon"><i class="fas fa-search"></i></a>
+        <input  [(ngModel)]="search" class="search_input" type="text" name="" placeholder="Search...">
+        <button type="button" class="search_icon"><i class="fas fa-search"></i></button>
       </div>
     </div>
   </div>
@@ -23,7 +25,7 @@
     <div class="container-cards">
       <div>{{sucursalModelGetId.nombre}}</div>
 
-      <div class="card"  *ngFor="let suc of productosModelGet" style="width: 18rem;">
+      <div class="card"  *ngFor="let suc of productosModelGet | search:search" style="width: 18rem;">
 
 
 

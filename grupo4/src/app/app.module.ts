@@ -15,7 +15,9 @@ import { EmpreSucComponent } from './components/empre-suc/empre-suc.component';
 import { SucursalComponent } from './components/sucursal/sucursal.component';
 import { IndefinidoComponent } from './components/indefinido/indefinido.component';
 import { IntegrantesComponent } from './components/integrantes/integrantes.component';
-
+import { SearchPipe } from './pipes/search.pipe';
+import {GraficasComponent} from './components/graficas/graficas.component';
+import { ChartsModule } from '@rinminase/ng-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,19 +25,22 @@ import { IntegrantesComponent } from './components/integrantes/integrantes.compo
     NavbarComponent,
     HomeComponent,
     DashboardComponent,
+    GraficasComponent,
     FooterComponent,
     EmpresasComponent,
     EmpreSucComponent,
     SucursalComponent,
     IndefinidoComponent,
-    IntegrantesComponent
-
+    IntegrantesComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
